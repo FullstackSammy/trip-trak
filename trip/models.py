@@ -30,7 +30,7 @@ class Note(models.Model):
     
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='notes') # om en trip raderas så raderas alla notes som är associerat med den.
     name = models.CharField(max_length=100)
-    decription = models.TextField()
+    description = models.TextField()
     type = models.CharField(max_length=100, choices=EXCURSIONS)
     img = models.ImageField(upload_to='notes', blank=True, null=True) #blank and null means that uploading an image is not required.
     rating = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(5)]) # The validator is saying and doing so that you cannot put in a rating higher than 5.

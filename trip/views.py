@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 from django.views.generic import TemplateView, CreateView, DetailView
 from django.urls import reverse_lazy
 
-from .models import Trip
+from .models import Trip, Note
 
 # Create your views here.
 class HomeView(TemplateView):
@@ -40,3 +40,6 @@ class TripDetailView(DetailView):
         context['notes'] = notes
         return context
     # med detta ovan så kommer vi ha access till den nya context-variabeln, vilket är våran Notes model.
+
+class NoteDetailView(DetailView):
+    model = Note

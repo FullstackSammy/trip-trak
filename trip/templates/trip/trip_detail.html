@@ -5,11 +5,11 @@
     <div class="bg-gray-50 p-8 rounded shadow my-4">
         <p class="text-2xl">{{trip.country}} | {{trip.city}}</p>
         <hr class="my-4">
-        {% comment %} <a class="px-7 py-2 bg-gray-300 rounded md:mr-4 hover:bg-gray-200" href="{% url 'trip-update' trip.pk %}">Edit</a>
+         {% comment %} <a class="px-7 py-2 bg-gray-300 rounded md:mr-4 hover:bg-gray-200" href="{% url 'trip-update' trip.pk %}">Edit</a>
             <form class="inline" action="{% url 'trip-delete' trip.pk %}" method="POST">
                 {% csrf_token %}
                 <input type="submit" class="px-7 py-2 bg-red-300 rounded hover:bg-red-200 hover:cursor-pointer" value="Delete" />
-            </form>
+            </form> {% endcomment %}
         <h3 class="text-xl pb-4">Notes:</h3>
         <div class="flex gap-2 flex-wrap">
             {% for note in notes %}
@@ -21,11 +21,11 @@
                 </div>
             </a>
             {% endfor %}
-            <a href="{% url 'note-create' %}">
+            {% comment %} <a href="{% url 'note-create' %}">
                 <div class="border-2 border-dashed rounded-lg hover:shadow w-48 h-48 flex justify-center items-center">
                     <p class="min-h-32">New Note +</p>
                 </div>
-            </a>
-        </div> {% endcomment %}
+            </a> {% endcomment %}
+        </div> 
     </div>
 {% endblock content %}

@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # 3rd party apps
+    'crispy_tailwind',
+    'crispy_forms',
+    
+    
     # Local apps
     'trip',
 ]
@@ -131,3 +136,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # Telling Django where the files w
 
 # Where should user go after login - if not next:
 LOGIN_REDIRECT_URL = 'trip-list'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"

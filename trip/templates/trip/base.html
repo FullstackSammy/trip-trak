@@ -16,7 +16,7 @@
                     <a href="{% url 'trip-list' %}">
                         <li class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer">My Trips</li>
                     </a>
-                    <a href="{% url 'trip-create' %}">
+                    {% comment %} <a href="{% url 'trip-create' %}">
                         <li class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer">New Trip +</li>
                     </a>
                     <a href="{% url 'note-list' %}">
@@ -24,7 +24,7 @@
                     </a>
                     <a href="{% url 'note-create' %}">
                     <li class="py-2 px-3 md:px-0 hover:bg-gray-600 hover:cursor-pointer">New Note +</li>
-                    </a>
+                    </a> {% endcomment %}
                 </ul>
             </div>
             <div class="mt-auto w-full text-center flex md:flex-col justify-evenly py-2 md:pt-0">

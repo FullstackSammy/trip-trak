@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, DetailView
 from django.urls import reverse_lazy
 
 from .models import Trip
@@ -28,3 +28,15 @@ class TripCreateView(CreateView):
         # owner field = logged in user
         form.instance.owner = self.request.user
         return super().form_valid(form)
+    
+class TripDetailView(DetailView):
+    model = Trip
+    
+    # Som det är nu så kommer vi bara få den datan som finns i Trip model. Men vi vill också ha med notes. För att kunna få med det så måste vi overrida context-variabeln som skickas med denna. Då gör vi så här:
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        trip = context['object']
+        notes = trip.notes.all()
+        context['notes'] = notes
+        return context
+    # med detta ovan så kommer vi ha access till den nya context-variabeln, vilket är våran Notes model.

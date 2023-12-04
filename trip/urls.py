@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView, trips_list, TripCreateView, TripDetailView, NoteDetailView, NoteListView, NoteCreateView, NoteDeleteView, NoteUpdateView
+from .views import HomeView, trips_list, TripCreateView, TripDetailView, NoteDetailView, NoteListView, NoteCreateView, NoteDeleteView, NoteUpdateView, TripUpdateView, TripDeleteView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
@@ -8,6 +8,8 @@ urlpatterns = [
     path('dashboard/note/create/', NoteCreateView.as_view(), name='note-create'),
     path('dashboard/trip/create/', TripCreateView.as_view(), name='trip-create'),
     path('dashboard/trip/<int:pk>/', TripDetailView.as_view(), name='trip-detail'),
+    path('dashboard/trip/<int:pk>/update/', TripUpdateView.as_view(), name='trip-update'),
+    path('dashboard/trip/<int:pk>/delete/', TripDeleteView.as_view(), name='trip-delete'),
     path('dashboard/notes/<int:pk>/',
          NoteDetailView.as_view(), name='note-detail'),
     path('dashboard/notes/<int:pk>/update/',

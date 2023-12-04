@@ -58,7 +58,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,3 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/' # The acutal URL to an image
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # Telling Django where the files will be stored in the project.
+
+# Where should user go after login - if not next:
+LOGIN_REDIRECT_URL = 'trip-list'
